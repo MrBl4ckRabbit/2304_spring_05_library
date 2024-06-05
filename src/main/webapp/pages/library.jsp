@@ -15,16 +15,28 @@
       <th>Title</th>
       <th>Author</th>
       <th>Pages</th>
+      <th>Action</th>
     </tr>
      <c:forEach var="book" items="${library.books}">
        <tr>
          <td>${book.title}</td>
          <td>${book.author}</td>
          <td>${book.pages}</td>
+         <td>
+           <a href="/deleteBook/${book.id}/${library.id}">Delete</a>
+           <a href="/deleteBookSecond/${book.id}">DeleteSecond</a>
+           <a href="/pages/upd-book-old.jsp?id=${book.id}&title=${book.title}&author=${book.author}&pages=${book.pages}&library=${library.id}">Update</a>
+         </td>
 
        </tr>
        </c:forEach>
   </table>
+  <p>
+     <a href="/addBook/${library.id}">Add new Book</a>
+  </p>
+    <p>
+        <a href="/pages/add-book-old.jsp?library_id=${library.id}">Add new Book Old</a>
+     </p>
   <p>
     <a href="/">Back</a>
   </p>
